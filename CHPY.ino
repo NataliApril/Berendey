@@ -63,7 +63,7 @@ void loop() {
     //Центральное положение, не делаем ничего
     X_ofset = abs(X_right_steps - X_left_steps);
   } else {
-    if (abs(X_right_steps) < MAX_val) {
+    if ((abs(X_right_steps) < MAX_val) & (X_right_steps >= 0)) {
       while (X_val > max_center_val) {
         digitalWrite(dirPin_X, CCW_dir);          //задаем направление движения
         digitalWrite(dirPin_X, HIGH);
@@ -76,7 +76,7 @@ void loop() {
     } else {
       //лента должна стать красной
     }
-    if (abs(X_left_steps) < MAX_val) {
+    if ((abs(X_left_steps) < MAX_val) & (X_left_steps <= 0)) {
       while (X_val < min_center_val) {
         digitalWrite(dirPin_X, CW_dir);          //задаем направление движения
         digitalWrite(dirPin_X, HIGH);
@@ -95,7 +95,7 @@ void loop() {
     //Центральное положение, не делвем ничего
     Y_ofset = abs(Y_right_steps - Y_left_steps);
   } else {
-    if (abs(Y_right_steps) < MAX_val) {
+    if ((abs(Y_right_steps) < MAX_val) & (Y_right_steps >=0)) {
       while (Y_val > max_center_val) {
         digitalWrite(dirPin_Y, CCW_dir);          //задаем направление движения
         digitalWrite(dirPin_Y, HIGH);
@@ -108,7 +108,7 @@ void loop() {
     } else {
       //лента должна стать красной
     }
-    if (abs(Y_right_steps) < MAX_val) {
+    if ((abs(Y_left_steps) < MAX_val) & (Y_left_steps <=0)) {
       while (Y_val < min_center_val) {
         digitalWrite(dirPin_Y, CW_dir);          //задаем направление движения
         digitalWrite(dirPin_Y, HIGH);
